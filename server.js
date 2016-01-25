@@ -9,6 +9,16 @@ var app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-app.listen(3000, function () {
-  console.log("Listening on port 3000...")
+app.get('/meals', function(req, res) {
+	console.log('get');
+	res.json({"status": "ok"});
+});
+
+app.post('/meals', function(req, res) {
+	console.log('post');
+	res.json({"status": "ok"});
+});
+
+app.listen(3000, function() {
+  console.log("Listening on port 3000...");
 });
