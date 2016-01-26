@@ -7,53 +7,54 @@ var mealInput = document.querySelector('.meal-input');
 var calorieInput = document.querySelector('.calorie-input');
 var dateInput = document.querySelector('.date-input');
 var submitButton = document.querySelector('.submit-button');
-var mealList = document.querySelector('.meal-list');
+var table = document.querySelector('.meal-list');
 
 
 var listCallback = function(response) {
+	tableCallback();
 	var mealItems = JSON.parse(response);
-	console.log(response)
-	console.log(mealItems);
 	mealItems.forEach(function(mealItem) {
-		var cucc = mealRow(mealItem)
-		console.log(mealItem);
-		var newMealRow = document.createElement('p');
-		newMealRow.innerText = cucc
-		mealList.appendChild(newMealRow);
+
+		var rowCount = table.rows.lengt;
+		var row = table.insertRow(rowCount);
+
+		row.insertCell(0).innerHTML = mealItem.name
+		row.insertCell(1).innerHTML = mealItem.calories
+		row.insertCell(2).innerHTML = mealItem.date
 	});
 };
 
 var refresh = function() {
-	request.open('GET', url);
-	request.setRequestHeader('Content-type', 'application/json');
-	request.send();
-	request.onreadystatechange = function() {
-		console.log('status: ', request.readyState);
-		if (request.readyState === 4) {
-			listCallback(request.response);
-		}
-	}	
+	table.innerHTML = '';
+	createRequest('GET', url, {}, listCallback)
 };
 
-function mealRow(meal) {
-	return '  *  ' + 
-    meal.name +
-    '  *  ' +
-    meal.calories +
-    '  *  ' +
-    meal.date
-}
+var refreshCallback = function(response) {
+	refresh();
+	};
 
-//hibakezeles ha nem szamot ad be if type not int alulra hiba uzenet, else lefut a fuggvny
+
+var createTable = function() {
+	var mainRow = table.insertRow(0);
+    var name = mainRow.insertCell(0);
+    var calorie = mainRow.insertCell(1);
+    var date = mainRow.insertCell(2);
+    name.innerHTML = "name";
+    calorie.innerHTML = "calorie";
+    date.innerHTML = "date";
+};
+
+var tableCallback = function(response) {
+	createTable();
+};
+
 submitButton.addEventListener('click', function() {
-	var meal = {
+	var meal = JSON.stringify({
 		name: mealInput.value,
 		calories: calorieInput.value,
 		date: dateInput.value
-	};
-	request.open('POST', url, meal);
-	request.setRequestHeader('Content-type', 'application/json');
-	request.send(meal && JSON.stringify(meal));
+	});
+	createRequest('POST', url, meal, refreshCallback);
 });
 
 refresh();
