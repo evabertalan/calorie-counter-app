@@ -1,3 +1,21 @@
 body {
+	background: cyan;
+}
+h1 {
 	background: yellow;
+}
+.submit-button{
+	background: red;
+}
+
+.calorie-input, .meal-input{
+	background: magenta;
+}
+
+.date-input {
+	background: green;
+}
+
+.meal-list {
+	background: orange;
 }
