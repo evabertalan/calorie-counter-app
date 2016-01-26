@@ -11,7 +11,9 @@ app.use(bodyParser.json());
 
 app.get('/meals', function(req, res) {
 	console.log('get');
-	res.json({"status": "ok"});
+	items.all(function(docs) {
+		res.json(docs)
+	})
 });
 
 app.post('/meals', function(req, res) {

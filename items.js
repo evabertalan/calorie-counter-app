@@ -8,6 +8,8 @@ var connection = mysql.createConnection({
 	database: 'calories'
 });
 
+connection.connect();
+
 function addMeal(meal) {
 	connection.query('INSERT INTO calories SET ?', meal, function(err, result) {
 		if (err) throw err;
@@ -15,8 +17,15 @@ function addMeal(meal) {
 	});
 };
 
-connection.connect();
+function allMeals(callback) {
+	connection.query('SELECT * FROM calories', function(err, result) {
+		if (err) throw err;
+		callback(result)
+	})
+}
+
 
 module.exports = {
-	add: addMeal
+	add: addMeal,
+	all: allMeals
 };
