@@ -16,7 +16,8 @@ app.get('/meals', function(req, res) {
 
 app.post('/meals', function(req, res) {
 	console.log('post');
-	res.json({"status": "ok"});
+	var item = items.add(req.body);
+	res.status(201).json(item);
 });
 
 app.listen(3000, function() {
