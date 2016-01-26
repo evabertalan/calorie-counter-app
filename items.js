@@ -15,7 +15,14 @@ function addMeal(meal) {
 		if (err) throw err;
 		console.log('result.insertId: ', result.insertId);
 	});
-};
+}
+
+function removeMeal(meal_id, callback) {
+	connection.query('DELETE FROM calories WHERE meal_id=?', meal_id, function(err, result) {
+		if (err) throw err;
+		callback(result)
+	});
+}
 
 function allMeals(callback) {
 	connection.query('SELECT * FROM calories', function(err, result) {
@@ -24,8 +31,8 @@ function allMeals(callback) {
 	});
 }
 
-
 module.exports = {
 	add: addMeal,
-	all: allMeals
+	all: allMeals,
+	remove: removeMeal
 };

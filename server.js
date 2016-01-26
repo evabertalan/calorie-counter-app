@@ -10,16 +10,20 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 app.get('/meals', function(req, res) {
-	console.log('get');
 	items.all(function(docs) {
-		res.json(docs);
-	});
+		res.json(docs)
+	})
 });
 
 app.post('/meals', function(req, res) {
-	console.log('post');
 	var item = items.add(req.body);
 	res.status(201).json(item);
+});
+
+app.delete('/meals/:id', function(req, res) {
+	items.remove(req.params.id, function() {
+		res.json({status: 'ok'});
+	});
 });
 
 app.listen(3000, function() {
