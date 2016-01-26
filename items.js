@@ -20,8 +20,8 @@ function addMeal(meal) {
 function allMeals(callback) {
 	connection.query('SELECT * FROM calories', function(err, result) {
 		if (err) throw err;
-		callback(result)
-	})
+		callback(result);
+	});
 }
 
 

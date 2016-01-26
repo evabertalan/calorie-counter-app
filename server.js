@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 app.get('/meals', function(req, res) {
 	console.log('get');
 	items.all(function(docs) {
-		res.json(docs)
-	})
+		res.json(docs);
+	});
 });
 
 app.post('/meals', function(req, res) {
