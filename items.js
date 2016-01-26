@@ -8,15 +8,15 @@ var connection = mysql.createConnection({
 	database: 'calories'
 });
 
-function addItem(attributes) {
-	connection.query('INSERT INTO calories SET ?', attributes, function(err, result) {
+function addMeal(meal) {
+	connection.query('INSERT INTO calories SET ?', meal, function(err, result) {
 		if (err) throw err;
 		console.log('result.insertId: ', result.insertId);
 	});
-}
+};
 
 connection.connect();
 
 module.exports = {
-	add: addItem
-}
+	add: addMeal
+};
