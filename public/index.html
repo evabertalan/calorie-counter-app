@@ -4,20 +4,29 @@
 		<meta charset="utf-8">
 		<title>Calorie Counter</title>
 		<link rel="stylesheet" href="style.css">
+		<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<h1>Calorie Counter</h1>
-		<textarea class="meal-input"></textarea>
-		<input type="number" class="calorie-input"/>
-		<input type="datetime-local" class="date-input"/>
-		<button class="submit-button">submit</button>
+		<div class="input-area">
+			<p>meal: <textarea class="meal-input"></textarea></p>
+
+			<p>kCal: <input type="number" class="calorie-input"/></p>
+
+			<p>date: <input type="datetime-local" class="date-input"/></p>
+			<button class="submit-button">submit</button>
+		</div>
+
 		<div class="filters">
 			<input type="date" class="date-filter"/>
 			<button class="filter">filter</button>
 			<button class="all">all</button>
 		</div>
 		<table class="meal-list"></table>
-		<div class="sum"></div>
+		<div class="sum-container">
+			<p>Total calorie: 
+			<div class="sum"></div></p>
+		</div>
 		<script src="create_table.js"></script>
 		<script src="create_request.js"></script>
 		<script src="frontend.js"></script>
