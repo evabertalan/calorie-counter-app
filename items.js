@@ -5,7 +5,8 @@ var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: '',
-	database: 'calories'
+	database: 'calories',
+	timezone: 'utc'
 });
 
 connection.connect();
