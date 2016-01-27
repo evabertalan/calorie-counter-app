@@ -20,8 +20,14 @@ var rowCreator = function(mealItem) {
 	row.insertCell(0).innerHTML = mealItem.name;
 	row.insertCell(1).innerHTML = mealItem.calories;
 	row.insertCell(2).innerHTML = mealItem.date.split('T')[0] + '. ' + mealItem.date.slice(11, 16);
-	row.insertCell(3).innerHTML = "<button class='delete'" + "onclick=" + "deleteRow(row.id)" + ">delete</button>";
+	row.insertCell(3).innerHTML = "<button class='delete' onclick=\"deleteRow("+ mealItem.meal_id + ")\">delete</button>";
+
+	if(mealItem.calories <= 100) {
+		row.setAttribute('class', 'green');
+	} else if (mealItem.calories > 100 && mealItem.calories <= 500) {
+		row.setAttribute('class', 'yellow');
+	} else {
+		row.setAttribute('class', 'red');
+	}
 };
-var deleteRow = function(id) {
-	console.log(id);
-}
+
