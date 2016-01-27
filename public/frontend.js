@@ -9,19 +9,24 @@ var dateInput = document.querySelector('.date-input');
 var submitButton = document.querySelector('.submit-button');
 var table = document.querySelector('.meal-list');
 
+var dateFilter = document.querySelector('.date-filter');
+var filterButton = document.querySelector('.filter');
+var allButton = document.querySelector('.all');
+
+var filter = '';
 
 var listCallback = function(response) {
 	tableCallback();
 	var mealItems = JSON.parse(response);
-	mealItems.forEach(function(mealItem) {
-
-		var rowCount = table.rows.lengt;
-		var row = table.insertRow(rowCount);
-
-		row.insertCell(0).innerHTML = mealItem.name
-		row.insertCell(1).innerHTML = mealItem.calories
-		row.insertCell(2).innerHTML = mealItem.date
-	});
+	if (filter === '') {
+		mealItems.forEach(function(mealItem) {
+			rowCreator(mealItem);
+		})
+	} else {
+		(mealItems.filter(filterByDate)).forEach(function(mealItem) {
+			rowCreator(mealItem);
+		});		
+	}
 };
 
 var refresh = function() {
@@ -33,19 +38,14 @@ var refreshCallback = function(response) {
 	refresh();
 	};
 
-
-var createTable = function() {
-	var mainRow = table.insertRow(0);
-    var name = mainRow.insertCell(0);
-    var calorie = mainRow.insertCell(1);
-    var date = mainRow.insertCell(2);
-    name.innerHTML = "name";
-    calorie.innerHTML = "calorie";
-    date.innerHTML = "date";
-};
-
 var tableCallback = function(response) {
 	createTable();
+};
+
+var filterByDate = function(mealItem) {
+	if(mealItem.date.split('T')[0] === filter) {
+		return true;
+	}
 };
 
 submitButton.addEventListener('click', function() {
@@ -55,6 +55,16 @@ submitButton.addEventListener('click', function() {
 		date: dateInput.value
 	});
 	createRequest('POST', url, meal, refreshCallback);
+});
+
+filterButton.addEventListener('click', function() {
+	filter = dateFilter.value;
+	refresh();
+});
+
+allButton.addEventListener('click', function() {
+	filter = '';
+	refresh();
 });
 
 refresh();
