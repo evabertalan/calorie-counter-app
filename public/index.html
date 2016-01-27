@@ -7,8 +7,8 @@
 	</head>
 	<body>
 		<h1>Calorie Counter</h1>
-		<textarea class="meal-input">Add meal</textarea>
-		<textarea class="calorie-input">20</textarea>
+		<textarea class="meal-input"></textarea>
+		<input type="number" class="calorie-input"/>
 		<input type="datetime-local" class="date-input"/>
 		<button class="submit-button">submit</button>
 		<div class="filters">
@@ -17,6 +17,7 @@
 			<button class="all">all</button>
 		</div>
 		<table class="meal-list"></table>
+		<div class="sum"></div>
 		<script src="create_table.js"></script>
 		<script src="create_request.js"></script>
 		<script src="frontend.js"></script>

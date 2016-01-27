@@ -12,14 +12,19 @@ var table = document.querySelector('.meal-list');
 var dateFilter = document.querySelector('.date-filter');
 var filterButton = document.querySelector('.filter');
 var allButton = document.querySelector('.all');
+var sumCalorie = document.querySelector('.sum');
+
+// var deleteButton = document.querySelector('delete');
 
 var filter = '';
 
 var listCallback = function(response) {
 	tableCallback();
+	var sum = 0;
 	var mealItems = JSON.parse(response);
 	if (filter === '') {
 		mealItems.forEach(function(mealItem) {
+			sum += mealItem.calories;
 			rowCreator(mealItem);
 		})
 	} else {
@@ -27,6 +32,7 @@ var listCallback = function(response) {
 			rowCreator(mealItem);
 		});		
 	}
+	sumCalorie.innerText = sum;
 };
 
 var refresh = function() {
@@ -66,5 +72,10 @@ allButton.addEventListener('click', function() {
 	filter = '';
 	refresh();
 });
+
+// deleteButton.addEventListener('click', function(e) {
+// 	console.log('hello');
+
+// });
 
 refresh();

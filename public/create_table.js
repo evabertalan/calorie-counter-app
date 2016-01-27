@@ -15,8 +15,13 @@ var rowCreator = function(mealItem) {
 	var rowCount = table.rows.lengt;
 	var row = table.insertRow(rowCount);
 
+	row.setAttribute('id', mealItem.meal_id);
+
 	row.insertCell(0).innerHTML = mealItem.name;
 	row.insertCell(1).innerHTML = mealItem.calories;
-	row.insertCell(2).innerHTML = mealItem.date;
-	row.insertCell(3).innerHTML = "delete button";
+	row.insertCell(2).innerHTML = mealItem.date.split('T')[0] + '. ' + mealItem.date.slice(11, 16);
+	row.insertCell(3).innerHTML = "<button class='delete'" + "onclick=" + "deleteRow(row.id)" + ">delete</button>";
 };
+var deleteRow = function(id) {
+	console.log(id);
+}
