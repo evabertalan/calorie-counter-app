@@ -1,21 +1,142 @@
 body {
-	background: cyan;
+	background: pink;
+/*	background-image: url(/img/1c.png);
+*/	font-family: 'PT Serif', serif;
 }
+
+.main-container {
+	display: flex;
+}
+
 h1 {
-	background: yellow;
+	color: white;
+	font-size: 50px;
+	text-align: center;
 }
+
+.input-area {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	width: 45%;
+}
+
+.meal-input, .calorie-input, .date-input {
+	width: 240px;
+	height: 25px;
+	font-size: 15px;
+	border-radius: 5px;
+}
+
+.mainbar {
+	width: 55%;
+}
+
+table {
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+}
+
+tr {
+	height: 38px;
+}
+
+.green {
+	background: rgba(0,255,0,0.28);
+}
+
+.yellow {
+	background: rgba(252,249,70,0.28);
+}
+
+.red {
+	background: rgba(255,0,0,0.28);
+}
+
+.delete, .filter, .all, .submit-button {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.main-row {
+	background: rgba(255, 255, 255, 0.6);
+	text-align: center;
+	font-weight: bold;
+}
+
+
+.row .delete-cell {
+	visibility: hidden;
+}
+
+.row:hover .delete-cell {
+	visibility: visible;
+}
+
+.delete-cell {
+	width: 20px;
+}
+
+.filters {
+	border-radius: 4px;
+	background: rgba(255, 255, 255, 0.4);
+	height: 60px;
+	margin-left: 20px;
+	margin-right: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.date-filter {
+	width: 240px;
+	height: 30px;
+	font-size: 13px;
+	border-radius: 5px;
+}
+
+
+.sum-container{
+	margin-top: 60px;
+	background: rgba(255, 255, 255, 0.4);
+	border-radius: 4px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	padding-left: 180px;
+	padding-right: 180px;
+	color: white;
+
+}
+
 .submit-button{
-	background: red;
+	margin-top: 20px;
 }
 
-.calorie-input, .meal-input{
-	background: magenta;
+.icon{
+	padding-right: 10px;
+
 }
 
-.date-input {
-	background: green;
+.green-circle{
 }
 
-.meal-list {
-	background: orange;
+.yellow-circle{
+
 }
+
+.red-circle {
+
+}
+
+
+
+@media screen and (min-width: 980px) {
+    body {
+        background-color: #34495E;
+    }
+}
+
+
+

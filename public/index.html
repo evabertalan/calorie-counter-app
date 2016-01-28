@@ -8,24 +8,32 @@
 	</head>
 	<body>
 		<h1>Calorie Counter</h1>
-		<div class="input-area">
-			<p>meal: <textarea class="meal-input"></textarea></p>
+		<div class="main-container">
+			<div class="input-area">
+				<p><img src='/img/hamburger-24.png' class='icon'><textarea class="meal-input" placeholder="Type your meal..."></textarea></p>
 
-			<p>kCal: <input type="number" class="calorie-input"/></p>
+				<p><img src='/img/scale.png' class='icon'><input type="number" placeholder="Type kCal..." class="calorie-input"/></p>
 
-			<p>date: <input type="datetime-local" class="date-input"/></p>
-			<button class="submit-button">submit</button>
-		</div>
+				<p><img src='/img/tear-of-calendar-24.png' class='icon'><input type="datetime-local" class="date-input"/></p>
+				<button class="submit-button"><img src='/img/plus-4-48.png' class="submit"></button>
+				<div class="sum-container">
+					<p>Total calorie: 
+					<div class="sum"></div></p>
+					<div class="green-circle"><img src="/img/green2.png"></div>
+					<div class="yellow-circle"><img src="/img/yellow2.png"></div>
+					<div class="red-circle"><img src="/img/red2.png"></div>
 
-		<div class="filters">
-			<input type="date" class="date-filter"/>
-			<button class="filter">filter</button>
-			<button class="all">all</button>
-		</div>
-		<table class="meal-list"></table>
-		<div class="sum-container">
-			<p>Total calorie: 
-			<div class="sum"></div></p>
+				</div>
+			</div>
+
+			<div class="mainbar">
+				<div class="filters">
+				<input type="date" class="date-filter"/>
+				<button class="filter"><img src='/img/filter.png'></button>
+				<button class="all"><img src='/img/list.png'></button>
+			</div>
+			<table class="meal-list"></table>
+			</div>
 		</div>
 		<script src="create_table.js"></script>
 		<script src="create_request.js"></script>

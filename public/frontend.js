@@ -54,7 +54,6 @@ var filterByDate = function(mealItem) {
 };
 
 var deleteRow = function(id) {
-	console.log(id);
 	createRequest('DELETE', url +'/' + id, undefined, refresh);
 }
 
