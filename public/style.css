@@ -1,7 +1,7 @@
 body {
-	background: pink;
-/*	background-image: url(/img/1c.png);
-*/	font-family: 'PT Serif', serif;
+/*	background: pink;
+*/	background-image: url(/img/1c.png);
+	font-family: 'PT Serif', serif;
 }
 
 .main-container {
@@ -12,6 +12,7 @@ h1 {
 	color: white;
 	font-size: 50px;
 	text-align: center;
+	margin-bottom: 60px;
 }
 
 .input-area {
@@ -99,15 +100,20 @@ tr {
 
 
 .sum-container{
-	margin-top: 60px;
+	margin-top: 100px;
+	margin-bottom: 30px;
 	background: rgba(255, 255, 255, 0.4);
-	border-radius: 4px;
-	padding-top: 100px;
-	padding-bottom: 100px;
-	padding-left: 180px;
-	padding-right: 180px;
+	border-radius: 5px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 35px;
+	padding-right: 35px;
 	color: white;
+	font-size: 23px;
+}
 
+.sum{
+	padding: 30px;
 }
 
 .submit-button{
@@ -119,24 +125,47 @@ tr {
 
 }
 
+.circles {
+	display: flex;
+	color: black;
+	font-size: 30px;
+}
+
 .green-circle{
+	padding: 32px;
+	background-image: url(/img/green2.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-bottom: 20px; 
+	opacity: 0.6;
 }
 
 .yellow-circle{
-
+	padding: 32px;
+	margin-left: 5px;
+	background-image: url(/img/yellow2.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-bottom: 20px; 
+	opacity: 0.6;	
 }
 
 .red-circle {
-
+	padding: 32px;
+    background-position: center; 
+	background-image: url(/img/red2.png);
+	background-repeat: no-repeat;
+	margin-bottom: 20px;
+	opacity: 0.6;
 }
 
 
-
+/*
 @media screen and (min-width: 980px) {
     body {
         background-color: #34495E;
     }
 }
-
+*/
 
 

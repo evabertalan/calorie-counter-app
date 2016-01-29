@@ -7,7 +7,7 @@
 		<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<h1>Calorie Counter</h1>
+		<h1 id="test">Calorie Counter</h1>
 		<div class="main-container">
 			<div class="input-area">
 				<p><img src='/img/hamburger-24.png' class='icon'><textarea class="meal-input" placeholder="Type your meal..."></textarea></p>
@@ -17,11 +17,12 @@
 				<p><img src='/img/tear-of-calendar-24.png' class='icon'><input type="datetime-local" class="date-input"/></p>
 				<button class="submit-button"><img src='/img/plus-4-48.png' class="submit"></button>
 				<div class="sum-container">
-					<p>Total calorie: 
-					<div class="sum"></div></p>
-					<div class="green-circle"><img src="/img/green2.png"></div>
-					<div class="yellow-circle"><img src="/img/yellow2.png"></div>
-					<div class="red-circle"><img src="/img/red2.png"></div>
+					<div class="sum"></div>
+
+					<div class="circles">							<div class="green-circle"></div>
+						<div class="yellow-circle"></div>
+						<div class="red-circle"></div>
+					</div>
 
 				</div>
 			</div>
@@ -35,6 +36,7 @@
 			<table class="meal-list"></table>
 			</div>
 		</div>
+		<script src="percent_counter.js"></script>
 		<script src="create_table.js"></script>
 		<script src="create_request.js"></script>
 		<script src="frontend.js"></script>
