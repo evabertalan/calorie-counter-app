@@ -1,6 +1,6 @@
-var greenSum = 0;
-var yellowSum = 0;
-var redSum = 0;
+	var greenSum = 0;
+	var yellowSum = 0;
+	var redSum = 0;
 
 var percentOfColor = function(item) {
 	var calCell = item.getElementsByTagName('td')[1];

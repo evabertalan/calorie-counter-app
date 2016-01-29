@@ -36,6 +36,5 @@ var rowCreator = function(mealItem) {
 	}
 
 	percentOfColor(row);
-
 };
 

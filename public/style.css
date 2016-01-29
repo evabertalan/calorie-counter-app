@@ -1,7 +1,6 @@
 body {
-/*	background: pink;
-*/	background-image: url(/img/1c.png);
-	font-family: 'PT Serif', serif;
+	background-image: url(/img/1b.png);
+	font-family: 'Josefin Sans', sans-serif;
 }
 
 .main-container {
@@ -10,8 +9,10 @@ body {
 
 h1 {
 	color: white;
-	font-size: 50px;
+	font-size: 54px;
+	font-weight: bold;
 	text-align: center;
+	margin-top: 50px;
 	margin-bottom: 60px;
 }
 
@@ -100,7 +101,7 @@ tr {
 
 
 .sum-container{
-	margin-top: 100px;
+	margin-top: 70px;
 	margin-bottom: 30px;
 	background: rgba(255, 255, 255, 0.4);
 	border-radius: 5px;
@@ -132,7 +133,7 @@ tr {
 }
 
 .green-circle{
-	padding: 32px;
+	padding: 35px;
 	background-image: url(/img/green2.png);
 	background-repeat: no-repeat;
 	background-position: center;
@@ -141,7 +142,7 @@ tr {
 }
 
 .yellow-circle{
-	padding: 32px;
+	padding: 35px;
 	margin-left: 5px;
 	background-image: url(/img/yellow2.png);
 	background-repeat: no-repeat;
@@ -151,7 +152,7 @@ tr {
 }
 
 .red-circle {
-	padding: 32px;
+	padding: 35px;
     background-position: center; 
 	background-image: url(/img/red2.png);
 	background-repeat: no-repeat;

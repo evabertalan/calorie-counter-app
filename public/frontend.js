@@ -21,9 +21,10 @@ var redCircle = document.querySelector('.red-circle');
 var filter = '';
 
 var listCallback = function(response) {
-	tableCallback(['name', 'calorie', 'date']);
+	createTable(['name', 'calorie', 'date']);
 	var sum = 0;
 	var mealItems = JSON.parse(response);
+	
 	if (filter === '') {
 		mealItems.forEach(function(mealItem) {
 			sum += mealItem.calories;
@@ -31,12 +32,12 @@ var listCallback = function(response) {
 		})
 	} else {
 		(mealItems.filter(filterByDate)).forEach(function(mealItem) {
-			rowCreator(mealItem);
 			sum += mealItem.calories;
+			rowCreator(mealItem);
 		});		
 	}
-	sumCalorie.innerText = 'Total Calorie: ' + String(sum) + ' kCal';
 
+	sumCalorie.innerText = 'Total Calorie: ' + String(sum) + ' kCal';
 	greenCircle.innerText = String(Math.round((greenSum/sum)*100)) + '%';
 	yellowCircle.innerText = String(Math.round((yellowSum/sum)*100)) + '%';
 	redCircle.innerText = String(Math.round((redSum/sum)*100)) + '%';
@@ -47,14 +48,6 @@ var refresh = function() {
 	createRequest('GET', url, {}, listCallback)
 };
 
-var refreshCallback = function(response) {
-	refresh();
-	};
-
-var tableCallback = function(response) {
-	createTable(['name', 'calorie', 'date']);
-};
-
 var filterByDate = function(mealItem) {
 	if(mealItem.date.split('T')[0] === filter) {
 		return true;
@@ -62,7 +55,14 @@ var filterByDate = function(mealItem) {
 };
 
 var deleteRow = function(id) {
+	nullVariable()
 	createRequest('DELETE', url +'/' + id, undefined, refresh);
+}
+
+var nullVariable = function() {
+	greenSum = 0;
+	yellowSum = 0;
+	redSum = 0;
 }
 
 submitButton.addEventListener('click', function() {
@@ -71,16 +71,19 @@ submitButton.addEventListener('click', function() {
 		calories: calorieInput.value,
 		date: dateInput.value
 	});
-	createRequest('POST', url, meal, refreshCallback);
+	nullVariable()
+	createRequest('POST', url, meal, refresh);
 });
 
 filterButton.addEventListener('click', function() {
 	filter = dateFilter.value;
+	nullVariable()
 	refresh();
 });
 
 allButton.addEventListener('click', function() {
 	filter = '';
+	nullVariable()
 	refresh();
 });
 
