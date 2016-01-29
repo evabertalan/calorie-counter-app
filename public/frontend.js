@@ -24,7 +24,7 @@ var listCallback = function(response) {
 	createTable(['name', 'calorie', 'date']);
 	var sum = 0;
 	var mealItems = JSON.parse(response);
-	
+
 	if (filter === '') {
 		mealItems.forEach(function(mealItem) {
 			sum += mealItem.calories;
