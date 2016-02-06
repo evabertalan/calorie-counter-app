@@ -29,7 +29,7 @@ var listCallback = function(response) {
 		mealItems.forEach(function(mealItem) {
 			sum += mealItem.calories;
 			rowCreator(mealItem);
-		})
+		});
 	} else {
 		(mealItems.filter(filterByDate)).forEach(function(mealItem) {
 			sum += mealItem.calories;
@@ -45,7 +45,7 @@ var listCallback = function(response) {
 
 var refresh = function() {
 	table.innerHTML = '';
-	createRequest('GET', url, {}, listCallback)
+	createRequest('GET', url, {}, listCallback);
 };
 
 var filterByDate = function(mealItem) {
@@ -55,35 +55,35 @@ var filterByDate = function(mealItem) {
 };
 
 var deleteRow = function(id) {
-	nullVariable()
+	nullVariable();
 	createRequest('DELETE', url +'/' + id, undefined, refresh);
-}
+};
 
 var nullVariable = function() {
 	greenSum = 0;
 	yellowSum = 0;
 	redSum = 0;
-}
+};
 
 submitButton.addEventListener('click', function() {
 	var meal = JSON.stringify({
-		name: mealInput.value,
+		meal_name: mealInput.value,
 		calories: calorieInput.value,
 		date: dateInput.value
 	});
-	nullVariable()
+	nullVariable();
 	createRequest('POST', url, meal, refresh);
 });
 
 filterButton.addEventListener('click', function() {
 	filter = dateFilter.value;
-	nullVariable()
+	nullVariable();
 	refresh();
 });
 
 allButton.addEventListener('click', function() {
 	filter = '';
-	nullVariable()
+	nullVariable();
 	refresh();
 });
 
